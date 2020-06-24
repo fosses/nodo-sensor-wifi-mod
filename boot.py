@@ -40,7 +40,7 @@ def do_connect():
 	wlan.active(True)	   # activate the interface
 	wlan.config(dhcp_hostname="ESP32_NODO_" + get_id())
 	if not wlan.isconnected():	  # check if the station is connected to an AP
-		wlan.connect(wficfg["ssid"], wficfg["pssw"]) # connect to the AP (Router)
+		wlan.connect(wficfg["ssid"], wficfg["password"]) # connect to the AP (Router)
 		for _ in range(30):
 			if wlan.isconnected():	  # check if the station is connected to an AP
 				print('\nNetwork config:', wlan.ifconfig())
