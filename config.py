@@ -56,7 +56,7 @@ def readCfg(logger=None):
 				del data_sbx
 			else:
 				print("No hay publicadores ni atributos desde Scinadmin")
-		logger.startTelegram()
+		logger.startTelegram(datadata["attributes"]["name"])
 		initialized = True
 #	return data
 

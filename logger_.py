@@ -38,13 +38,13 @@ class Logger:
 			print_exception(e)
 			print(repr(e))
 	
-	def startTelegram(self,):
+	def startTelegram(self,name):
 		try:
 			if self.name is "unnamed":
 				val_cfg				= self.readCfg("cfg.json")
 				self.telegramToken 	= val_cfg["msgconf"]["token"]
 				self.chatId			= val_cfg["msgconf"]["chat_id"]
-				self.name			= val_cfg["attributes"]["nombre"]
+				self.name			= name
 				self.tgramActive	= True
 				del val_cfg
 				print("Cliente de mensajeria configurado correctamente")
