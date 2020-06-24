@@ -1,0 +1,137 @@
+{
+	"attributes": {
+		"uid": "s9ey1w:sensor",
+		"nombre": "LabIoT-ESP32-Outdoor",
+		"modelo": "prototipo3",
+		"latitud": "-38.746053",
+		"longitud": "-72.615119",
+		"sector": "universidad",
+		"hardware": "ESP32",
+		"version": "versionsw",
+		"tipo": "sensor:interno",
+		"info-extra": "{}"
+	},
+	"measurements":{
+		"hm10": {
+			"id": "fyuu6h:contaminante:mp10",
+			"medicion:contaminante:mp10": "HPM10[2]",
+			"marca": "Honeywell",
+			"modelo": "HPMA115S0",
+			"tipo": "contaminante:mp10:ugm3",
+			"fecha:contaminante:mp10": "tstp",
+			"info-extra": "{}"
+		},
+		"hm2_5": {
+			"id": "fyuu6h:contaminante:mp2_5",
+			"medicion:contaminante:mp2_5": "HPM2_5[2]",
+			"marca": "Honeywell",
+			"modelo": "HPMA115S0",
+			"tipo": "contaminante:mp2_5:ugm3",
+			"fecha:contaminante:mp2_5": "tstp",
+			"info-extra": "{}"
+		},
+		"pm10": {
+			"id": "rbj01j:contaminante:mp10",
+			"medicion:contaminante:mp10": "P2",
+			"marca": "Plantower",
+			"modelo": "PMS7003",
+			"tipo": "contaminante:mp10:ugm3",
+			"fecha:contaminante:mp10": "tstp",
+			"info-extra": "{}"
+		},
+		"pm2_5": {
+			"id": "rbj01j:contaminante:mp2_5",
+			"medicion:contaminante:mp2_5": "HPM2_5[2]",
+			"marca": "Plantower",
+			"modelo": "PMS7003",
+			"tipo": "contaminante:mp2_5:ugm3",
+			"fecha:contaminante:mp2_5": "tstp",
+			"info-extra": "{}"
+		},
+		"temp": {
+			"id": "2y0sfs:meteorologia:temperatura",
+			"medicion:meteorologia:temperatura": "tem[2]",
+			"marca": "Aosong",
+			"modelo": "AM2315",
+			"tipo": "meteorologia:temperatura:C",
+			"fecha:meteorologia:temperatura": "tstp",
+			"info-extra": "{}"
+		},
+		"hur": {
+			"id": "2y0sfs:meteorologia:humedad",
+			"medicion:meteorologia:humedad": "hr[2]",
+			"marca": "Aosong",
+			"modelo": "AM2315",
+			"tipo": "meteorologia:humedad:%",
+			"fecha:meteorologia:humedad": "tstp",
+			"info-extra": "{}"
+		},
+		"tesp": {
+			"id": "2y0sfs:otro:temperatura",
+			"medicion:otro:temperatura": "(raw_temperature()-32)*0.5555556",
+			"marca": "Espressif",
+			"modelo": "ESP32-WROOM-32",
+			"tipo": "otro:temperatura:C",
+			"fecha:otro:temperatura": "tstp",
+			"info-extra": "{}"
+		},
+		"voltage":{
+			"id" 			        : "gh3b2:otro:voltaje",
+			"marca" 			    : "texas-instruments",
+			"modelo" 			    : "ina219",
+			"tipo" 			        : "otro:voltaje:mV",
+			"medicion:otro:voltaje" : "%.2f",
+			"fecha:otro:voltaje" 	: "%s",
+			"info-extra"            : "{}"
+		},
+		"current":{
+			"id" 			            : "gh3b2:otro:corriente",
+			"marca" 			        : "texas-instruments",
+			"modelo" 			        : "ina219",
+			"tipo" 			            : "otro:corriente:mA",
+			"medicion:otro:corriente" 	: "%.2f",
+			"fecha:otro:corriente" 	    : "%s",
+			"info-extra"                : "{}"
+		},
+		"power":{
+			"id" 			            : "gh3b2:otro:potencia",
+			"marca" 			        : "texas-instruments",
+			"modelo" 			        : "ina219",
+			"tipo" 			            : "otro:potencia:mW",
+			"medicion:otro:potencia" 	: "%.2f",
+			"fecha:otro:potencia" 	    : "%s",
+			"info-extra"                : "{}"
+		},
+		"sm10":{
+			"id"						:"k06owp:contaminante:mp10",
+			"medicion:contaminante:mp10": "SPM10[2]",
+			"marca"						: "Sensirion",
+			"modelo"					: "SPS30",
+			"tipo"						: "contaminante:mp10:ugm3",
+			"fecha:contaminante:mp10"	: "tstp",
+			"info-extra"				: "{}"
+		},
+		"sm2_5":{
+			"id"						: "k06owp:contaminante:mp2_5",
+			"medicion:contaminante:mp2_5": "SPM2_5[2]",
+			"marca"						: "Sensirion",
+			"modelo"					: "SPS30",
+			"tipo"						: "contaminante:mp2_5:ugm3",
+			"fecha:contaminante:mp2_5"	: "tstp",
+			"info-extra"				: "{}"
+		}
+	},
+	"msgconf":{
+			"token":"",
+			"chat_id":""
+	},
+	"publishers":[
+		{
+			"name"		: "newf",
+			"format"	: "simple",
+			"port"		: "8080",
+			"host"		: "146.83.206.131",
+			"token"		: "0skM2LqlLktoEuQZWmQY"
+		}
+	]
+}
