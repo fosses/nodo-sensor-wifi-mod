@@ -2,6 +2,7 @@ from ujson import dumps, load
 from utime import sleep, time, ticks_ms
 from sys import print_exception
 from os import VfsFat, mount, listdir, umount,remove
+from lib.requests import post
 import lib.sdcard as sdcard
 import _time
 from gc import collect
@@ -48,7 +49,6 @@ class Logger:
 				self.tgramActive	= True
 				del val_cfg
 				print("Cliente de mensajeria configurado correctamente")
-				from lib.requests import post
 		except Exception as e:
 			print("No se pudo configurar el cliente de mensajeria debido a: %s" %repr(e))
 	
@@ -79,12 +79,13 @@ class Logger:
 		self._log(Logger.INFO_FILE, data_str, e, put_timestamp = True, prefix = "INFO")
 	def warning(self, data_str,e=None):
 		self._log(Logger.WARNING_FILE, data_str, e, put_timestamp = True, prefix = "WARNING")
-		self.sendRemoteMessage("WARNING",data_str,True)		
+		self.sendRemoteMessage("WARNING",data_str,False)		
 	def error(self, data_str,e=None):
 		self._log(Logger.ERROR_FILE, data_str, e, put_timestamp = True, prefix = "ERROR")
 		self.sendRemoteMessage("ERROR",data_str,False)
 		
 	def sendRemoteMessage(self, prefix, data_str,onlyRstatus=False):
+		print("Enviando mensaje remoto: %s %s" %(prefix,data_str))
 		if self.rStatusActive:
 			try:
 				self.remoteStatus.set_device_state(prefix, data_str)
@@ -92,14 +93,14 @@ class Logger:
 				print("No se pudo enviar mensaje de reporte de error por set_device_state")
 				print_exception(e)
 		if self.tgramActive and not onlyRstatus:
-			data_str= "%s: %s" %(self.name, data_str)
+			data_str= "%s: %s %s" %(self.name, prefix, data_str)
 			headers = {'Content-Type': 'application/json','Accept': 'application/json'}
 			data 	= {"chat_id": self.chatId, "text": data_str}
 			url 	= 'https://api.telegram.org/bot%s/sendMessage'%(self.telegramToken)
 			try:
 				collect()
 				r = post(url = url, data = dumps(data), headers = headers)
-#				return r.status_code == 200
+				print(r.status_code)
 			except Exception as e:
 				collect()
 				print("No se pudo enviar mensaje de reporte de error por telegram")

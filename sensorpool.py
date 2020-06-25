@@ -255,5 +255,6 @@ def readsensors(sensors, logger):
 		logger.warning("Sensor de material particulado saturado")
 	if "ina219" in sensors and sensors["ina219"].voltage <= 3.3:
 		logger.warning("Bateria baja")
+		print("Bateria baja")
 	return measures
 		
