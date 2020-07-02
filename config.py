@@ -40,7 +40,11 @@ def readCfg(logger=None):
 			if device.login():
 				print("Logged in !")
 				print("Token: %s"%device.user["token"])
-				data_sbx_new=device.update(data["scinadmin"]["auth_key"],data_sbx["updatedAt"])
+				try:
+					data_sbx_new=device.update(data["scinadmin"]["auth_key"],data_sbx["updatedAt"])
+				except Exception as e:
+					print("Fallo la consulta de datos a scinadmin debido a %s" %(repr(e)))
+					data_sbx_new = None
 				if data_sbx_new is not None:	
 					del data_sbx
 					data_sbx=data_sbx_new
