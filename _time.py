@@ -45,11 +45,12 @@ def setntp(logger = None):
 			print("Intento %i para sincronizar reloj mediante NTP" %test)
 			if (test > 5 or time() > timeout or settime()):
 				break
-			test = test + 1
 		except Exception as e:
+			
 			print(repr(e))
 			if logger is not None:
 				logger.error("Error al sincronizar el reloj mediante NTP",e)
+		test =+ 1
 
 
 
