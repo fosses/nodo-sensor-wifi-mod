@@ -10,7 +10,7 @@ from utime import sleep, time, ticks_ms
 from machine import UART,I2C ,Pin, deepsleep, wake_reason, SPI, WDT, freq#, Timer, disable_irq, enable_irq
 from esp32 import raw_temperature
 
-VERSIONSW 	= "2.4.2"
+VERSIONSW 	= "2.4.2.2"
 TAIRF 		= 12
 TSTAMP 		= 946684800
 LOGDAT 		= 'logdata.txt'

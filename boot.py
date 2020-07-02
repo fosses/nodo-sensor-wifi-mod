@@ -64,7 +64,7 @@ if not SD or wficfg is None:
 	print("Reading default Wi-Fi data")
 	wficfg = {}
 	wficfg["ssid"]="WSLAB"
-	wficfg["pssw"]="wslabufro"
+	wficfg["password"]="wslabufro"
 	
 do_connect()
 if SD:
